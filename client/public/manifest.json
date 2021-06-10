@@ -1,6 +1,6 @@
 {
-  "short_name": "React app",
-  "name": "Create React App Sample",
+  "short_name": "BugCube",
+  "name": "BugCube - React based App",
   "icons": [
     {
       "src": "favicon.ico",

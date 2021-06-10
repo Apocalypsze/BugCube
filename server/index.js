@@ -9,16 +9,16 @@ app.use(cors());
 app.use(express.json());
 
 app.use(express.static('ImgDB'))
-app.use('/staticImages', express.static('ImgDB'))
+app.use('/api/staticImages', express.static('ImgDB'))
 
-app.get('/publist', (req,res) => {
+app.get('/api/publist', (req,res) => {
     fs.readdir("./ImgDB/Publication/",'utf8', function(err,data){
         res.send(data)
     
     })
 })
 
-app.get('/datasets', (req,res) => {
+app.get('/api/datasets', (req,res) => {
     //console.log("Dataset stuff: " , req.query.datasetname)
     fs.readdir("./ImgDB/Publication/" + req.query.datasetname,'utf8', function(err,data){
         if (data === undefined){
@@ -30,7 +30,7 @@ app.get('/datasets', (req,res) => {
     })
 })
 
-app.get('/channels', (req,res) => {
+app.get('/api/channels', (req,res) => {
     //console.log("Channels stuff: " , req.query.channelname)
     fs.readdir("./ImgDB/Publication/" + req.query.channelname[1] +"/"+ req.query.channelname[2] + "/PNG/" +  req.query.channelname[0],'utf8', function(err,data){
         if (data === undefined){
@@ -42,7 +42,7 @@ app.get('/channels', (req,res) => {
     })
 })
 
-app.get('/directions', (req,res) => {
+app.get('/api/directions', (req,res) => {
     //console.log("Direction Stuff: " , req.query.directionsname)
     fs.readdir("./ImgDB/Publication/" + req.query.directionsname[1] +"/"+ req.query.directionsname[0] + "/PNG",'utf8', function(err,data){
         if (data === undefined){
@@ -76,7 +76,7 @@ app.get('/textinfo', (req,res) => {
     })
 })
 
-app.get('/images', (req,res) => {
+app.get('/api/images', (req,res) => {
     //console.log("Img stuff: " , req.query.pathinfo, "\n")
     var dirpath = "./ImgDB/Publication/" + req.query.pathinfo[1] +"/"+ req.query.pathinfo[0] + "/PNG/" + req.query.pathinfo[2] +"/"+ req.query.pathinfo[3]
     var NameList = []
@@ -88,7 +88,7 @@ app.get('/images', (req,res) => {
     }
     for (x = 0; x < NameList.length; x++){
         for (y=0; y< NameList[x].length; y++){
-            NameList[x][y] = dirpath.replace("./ImgDB","/staticImages") + "/" + fs.readdirSync(dirpath)[x] + "/" + NameList[x][y]
+            NameList[x][y] = dirpath.replace("./ImgDB","/api/staticImages") + "/" + fs.readdirSync(dirpath)[x] + "/" + NameList[x][y]
         }
     }
     res.send(NameList)
