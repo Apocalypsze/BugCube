@@ -1,6 +1,6 @@
 
 .App{
-  padding: 20px;
+  padding: 4px;
   
  }
 
@@ -30,12 +30,12 @@
   resize: none;
   overflow: auto;
   width: 100%;
-  height: 100px;
+  height: 150px;
 
   padding: 5px;
   background-color: black;
   color: beige;
-  border-color: chartreuse;
+  border-color: yellowgreen;
 }
 
  .PanelBar{
@@ -54,6 +54,7 @@
  
  .BtnBelow{
    padding: 2px;
+   
  }
  
  .MuiNativeSelect-select{
@@ -63,12 +64,13 @@
  .MenuBar {
    padding: 5px;
    color: honeydew;
-   background-color: darkslategray
+   background-color: black
  }
 
  .InfoBox{
    padding: 10;
    color: honeydew;
+   
  }
 
  .Panelz{
@@ -78,7 +80,7 @@
  .ImgHolder{
    object-fit: contain;
    width: 600px;
-   height: 1100px;
+   height: 1000px;
  }
 
  .ScrollingContainer{
@@ -96,9 +98,26 @@
  }
 
  .btn{
-  padding:2px;
+  padding:5px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  
+  
  }
 
  .test1{
   padding-top:20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+
+ .ImpText{
+  padding: 5px;
+  text-align: center;
+  resize: none;
+  background-color: black;
+  color: beige;
+  border-color: black;
  }

@@ -32,6 +32,7 @@ function App() {
 
   const getlist = () => {
     Axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/publist`).then((response) => {
+    //Axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/publist`).then((response) => {
       setpublist(response.data);
       //console.log("Response Data: " + response.data[0])
       getDatasets(response.data[0]);
@@ -94,10 +95,10 @@ function App() {
   return (
     <div className="App">
 
-    <Grid item xs={12}>
+   {/*} <Grid item xs={12}>
       <div className="NavBar"></div>
     </Grid>
-
+  */}
     <Grid container spacing={2}>
         <Grid item xs={4}>
 
@@ -107,13 +108,13 @@ function App() {
 
           <div className="MenuBar">
 
-        <PublicationMenu id="Publication" list={publist} channelprop={getDatasets} labelName={"Publication"}></PublicationMenu>
+        <PublicationMenu id="Publication" list={publist} channelprop={getDatasets} labelName={"Publication: "}></PublicationMenu>
 
-        <PublicationMenu id="Dataset" list={datasetList} channelprop={getDirectionsOptions} labelName={"Dataset"}></PublicationMenu>
+        <PublicationMenu id="Dataset" list={datasetList} channelprop={getDirectionsOptions} labelName={"Dataset: "}></PublicationMenu>
         
-        <PublicationMenu id="DirectionsOption" list={directionsOptionList} channelprop={getChannels} labelName={"DirectionsOption"}></PublicationMenu>
+        <PublicationMenu id="DirectionsOption" list={directionsOptionList} channelprop={getChannels} labelName={"DirectionsOption: "}></PublicationMenu>
 
-        <PublicationMenu id="Channel" list={channelList} channelprop={getImgList} labelName={"Channel"}></PublicationMenu>
+        <PublicationMenu id="Channel" list={channelList} channelprop={getImgList} labelName={"Channel: "}></PublicationMenu>
 
         </div>
 
@@ -147,63 +148,63 @@ function App() {
       </Grid>
       </div>
 
-      <div className="test1">
+      <div >
       <Grid container spacing={2} >
 
-      <Grid container xs={12}>
+      <Grid className="test1" container xs={12}>
 
-        <Grid xs={3} container direction="column" spacing={1}>
+        <Grid className="btn" xs={3} container direction="column" spacing={1}>
 
         <Grid item xs={12}>
-            <Button variant="contained" color="default">Download 01</Button>
+            <Button variant="contained" color="default">Z-Stacks</Button>
           </Grid>
           <Grid item xs={12}>
-            <Button variant="contained" color="default">Download 02</Button>
+            <Button variant="contained" color="default">T-Stacks-ZM</Button>
           </Grid>
           <Grid item xs={12}>
-            <Button variant="contained" color="default">Download 03</Button>
+            <Button variant="contained" color="default">T-Stacks-ZN</Button>
           </Grid>
 
         </Grid>
 
-        <Grid xs={3} container direction="column" spacing={1}>
+        <Grid className="btn" xs={3} container direction="column" spacing={1}>
           
         <Grid item xs={12}>
-            <Button variant="contained" color="default">Download 01</Button>
+            <Button variant="contained" color="default">Z-Stacks</Button>
           </Grid>
           <Grid item xs={12}>
-            <Button variant="contained" color="default">Download 02</Button>
+            <Button variant="contained" color="default">T-Stacks-ZM</Button>
           </Grid>
           <Grid item xs={12}>
-            <Button variant="contained" color="default">Download 03</Button>
+            <Button variant="contained" color="default">T-Stacks-ZN</Button>
           </Grid>
 
         </Grid>
 
-        <Grid xs={3} container direction="column" spacing={1}>
+        <Grid className="btn" xs={3} container direction="column" spacing={1}>
           
         <Grid item xs={12}>
-            <Button variant="contained" color="default">Download 01</Button>
+            <Button variant="contained" color="default">Z-Stacks</Button>
           </Grid>
           <Grid item xs={12}>
-            <Button variant="contained" color="default">Download 02</Button>
+            <Button variant="contained" color="default">T-Stacks-ZM</Button>
           </Grid>
           <Grid item xs={12}>
-            <Button variant="contained" color="default">Download 03</Button>
+            <Button variant="contained" color="default">T-Stacks-ZN</Button>
           </Grid>
 
         </Grid>
 
-        <Grid xs={3} container direction="column" spacing={1}>
+        <Grid className="btn" xs={3} container direction="column" spacing={1}>
           
           <Grid item xs={12}>
-            <Button variant="contained" color="default">Download 01</Button>
+            <Button variant="contained" color="default">Z-Stacks</Button>
           </Grid>
           <Grid item xs={12}>
-            <Button variant="contained" color="default">Download 02</Button>
+            <Button variant="contained" color="default">T-Stacks-ZM</Button>
           </Grid>
           <Grid item xs={12}>
-            <Button variant="contained" color="default">Download 03</Button>
+            <Button variant="contained" color="default">T-Stacks-ZN</Button>
           </Grid>
 
         </Grid>
@@ -213,8 +214,14 @@ function App() {
 
       </div>
         <div className="footer">
-          <p1>Just a footer paragraph! &copy; </p1>
-          <p2>Just some info</p2>
+          <a href="google.com">Impressum<br></br></a>
+          <a href="google.com">Privacy policy<br></br></a>
+          <a href="google.com">Contact Information<br></br></a>
+          {/*<textarea readOnly="readonly" className="ImpText">
+            Contact informattion
+            blabala
+          </textarea>*/}
+                       
         </div>
 
       </Grid>

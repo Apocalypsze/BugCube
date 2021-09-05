@@ -54,7 +54,7 @@ app.get('/api/directions', (req,res) => {
     })
 })
 
-app.get('/textinfo', (req,res) => {
+app.get('/api/textinfo', (req,res) => {
     //console.log("Text Stuff: " , req.query.textname)
     textstuff = ""
     fs.readdir("./ImgDB/Publication/" + req.query.textname[1] +"/"+ req.query.textname[0] + "/(B1)-Metadata",'utf8', function(err,data){

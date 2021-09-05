@@ -52,7 +52,7 @@ export class ImageScroller extends Component {
   scrollEvent = event => {
     console.log('scrollEvent', event.deltaY)
 
-    var mouse_direction = event.deltaY * 0.01;
+    var mouse_direction = Math.round(event.deltaY * 0.01);
 
     var newActive = this.state.active + mouse_direction;
     newActive = (this.state.images.length > newActive 
