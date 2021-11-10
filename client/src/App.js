@@ -7,7 +7,8 @@ import { ImageScroller } from './components/ImageScroller';
 import Button from '@material-ui/core/Button';
 
 function App() {
-
+  //var dnsName = "http://195.37.12.200:80"
+  var dnsName = "http://localhost:3001"
   var [publist, setpublist] = useState([""]); 
   var [channelList, setChannelList] = useState([])
   var [datasetList, setDatasetList] = useState([])
@@ -31,8 +32,8 @@ function App() {
   },[] );
 
   const getlist = () => {
-    Axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/publist`).then((response) => {
-    //Axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/publist`).then((response) => {
+    Axios.get(dnsName + "/api/publist").then((response) => {
+    //Axios.get(dnsName + "/api/publist").then((response) => {
       setpublist(response.data);
       //console.log("Response Data: " + response.data[0])
       getDatasets(response.data[0]);
@@ -44,7 +45,7 @@ function App() {
     datasetLogger.current = currentInfo;
     //console.log("Datasets Loggers: ",datasetLogger.current,directionLogger.current,channelLogger.current)
     //console.log("test", datasetLogger)
-    Axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/datasets`,{ params: { datasetname: datasetLogger.current } }).then((response) => {
+    Axios.get(dnsName + "/api/datasets",{ params: { datasetname: datasetLogger.current } }).then((response) => {
       setDatasetList(response.data);
       getDirectionsOptions(response.data[0]);
       //console.log("getDirectionsOptions: " + response.data[0])
@@ -55,7 +56,7 @@ function App() {
     //console.log("currentdir: ", currentdir)
     directionLogger.current = currentdir;
     //console.log("Direction Loggers: ",datasetLogger.current,directionLogger.current,channelLogger.current)
-    Axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/directions`,{ params: { directionsname: [directionLogger.current,datasetLogger.current] } }).then((response) => {
+    Axios.get(dnsName + "/api/directions",{ params: { directionsname: [directionLogger.current,datasetLogger.current] } }).then((response) => {
       setDirectionOptionList(response.data);
       getChannels(response.data[0]);
       getTextInfo();
@@ -64,7 +65,7 @@ function App() {
   }
 
   const getTextInfo = () => {
-    Axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/textinfo`,{ params: { textname: [directionLogger.current,datasetLogger.current] } }).then((response) => {
+    Axios.get(dnsName + "/api/textinfo",{ params: { textname: [directionLogger.current,datasetLogger.current] } }).then((response) => {
       setTextInfo(response.data);
       //console.log(response.data)
     })
@@ -73,7 +74,7 @@ function App() {
   const getChannels = async (currentInfo) => {
     channelLogger.current = currentInfo;
     //console.log("Channel Loggers: ",datasetLogger.current,directionLogger.current,channelLogger.current)
-    Axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/channels`,{ params: { channelname: [channelLogger.current,datasetLogger.current,directionLogger.current] } }).then((response) => {
+    Axios.get(dnsName + "/api/channels",{ params: { channelname: [channelLogger.current,datasetLogger.current,directionLogger.current] } }).then((response) => {
       setChannelList(response.data);
       getImgList(response.data[0]);
       //console.log("getImgList " + response.data[0]);
@@ -85,7 +86,7 @@ function App() {
   const getImgList = (currentInfo) => {
     //console.log("ImgList Loggers: ",datasetLogger.current,directionLogger.current,channelLogger.current)
     
-    Axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/images`,{ params: { pathinfo: [directionLogger.current,datasetLogger.current,channelLogger.current,currentInfo] } }).then((response) => {
+    Axios.get(dnsName + "/api/images",{ params: { pathinfo: [directionLogger.current,datasetLogger.current,channelLogger.current,currentInfo] } }).then((response) => {
       setImgList([[],[],[],[]]);
       setImgList(response.data);
     })

@@ -8,10 +8,10 @@ import equal from 'fast-deep-equal'
 //const images = []
 {/*
 const images = [
-  process.env.REACT_APP_BACKEND_URL + "/staticImages/Publication/ABerghoff-MA/DS0002-PNGs/Merged/DR0002/ABerghoffMA-DS0002TP0221DR0002CH(AM)PL(ZA)-Preview.png",
-  process.env.REACT_APP_BACKEND_URL + "/staticImages/Publication/ABerghoff-MA/DS0002-PNGs/Merged/DR0002/ABerghoffMA-DS0002TP0222DR0002CH(AM)PL(ZA)-Preview.png",
-  process.env.REACT_APP_BACKEND_URL + "/staticImages/Publication/ABerghoff-MA/DS0002-PNGs/Merged/DR0002/ABerghoffMA-DS0002TP0223DR0002CH(AM)PL(ZA)-Preview.png",
-  process.env.REACT_APP_BACKEND_URL + "/staticImages/Publication/ABerghoff-MA/DS0002-PNGs/Merged/DR0002/ABerghoffMA-DS0002TP0224DR0002CH(AM)PL(ZA)-Preview.png",
+  dnsName + "/staticImages/Publication/ABerghoff-MA/DS0002-PNGs/Merged/DR0002/ABerghoffMA-DS0002TP0221DR0002CH(AM)PL(ZA)-Preview.png",
+  dnsName + "/staticImages/Publication/ABerghoff-MA/DS0002-PNGs/Merged/DR0002/ABerghoffMA-DS0002TP0222DR0002CH(AM)PL(ZA)-Preview.png",
+  dnsName + "/staticImages/Publication/ABerghoff-MA/DS0002-PNGs/Merged/DR0002/ABerghoffMA-DS0002TP0223DR0002CH(AM)PL(ZA)-Preview.png",
+  dnsName + "/staticImages/Publication/ABerghoff-MA/DS0002-PNGs/Merged/DR0002/ABerghoffMA-DS0002TP0224DR0002CH(AM)PL(ZA)-Preview.png",
 ]
 */}
 
@@ -72,9 +72,12 @@ export class ImageScroller extends Component {
 
   addURLFunction = (imgList) => {
     var listWithURL = []
+    //var dnsName = "http://195.37.12.200:80"
+    var dnsName = "http://localhost:3001"
+
     for (let i=0; i < imgList.length; i++){
       //var listWithURL = []
-      listWithURL.push(process.env.REACT_APP_BACKEND_URL + imgList[i])
+      listWithURL.push(dnsName + imgList[i])
     }
 
     return(listWithURL)
